@@ -8,6 +8,15 @@ os.system('pip install json') or None
 os.system('clear') or None
 
 
+txt2 = """
+╔════╦╗░╔╗░░░╔═══╗░░░░░░░░░░ ╔╗╔╗
+║╔╗╔╗║║░║║░░░║╔═╗║░░░░░░░░░░░║╠╝╚╗
+╚╝║║╚╣╚═╝╠═══╣║░╚╬══╦═╗╔══╦╗╔╣╠╗╔╬══╗
+░░║║░║╔═╗╠══║║║░╔╣╔╗║╔╗╣══╣║║║║║║║╔╗║
+░░║║░║║░║║║══╣╚═╝║╚╝║║║╠══║╚╝║╚╣╚╣╔╗║
+░░╚╝ ╚╝░╚╩═══╩═══╩══╩╝╚╩══╩══╩═╩═╩╝╚╝
+"""
+
 txt = """
 ╔════╦╗░╔╗░░░╔═══╗░░░░░░░░░░ ╔╗╔╗
 ║╔╗╔╗║║░║║░░░║╔═╗║░░░░░░░░░░░║╠╝╚╗
@@ -19,17 +28,21 @@ txt = """
  o que deseja?
 [1]ip
 [2]cep
-[3]cnpj"""
+[3]cnpj
+"""
 print(txt)
 od = input(":")
  
 os.system('clear') or None
 
 if od == '1':
+
+  print(txt2)
   pesquisa_ip = input("digite um ip:")
   
   os.system('clear') or None
-
+  
+  print(txt2)
   dadosip = requests.get("https://api.ipinfodb.com/v3/ip-city/?key=87da097b47b0b39e30b28ef4f537999ef4ca0fe5b5028626c697ca72d7fedb3b&ip={}&format=json".format(pesquisa_ip))
   dadosip = dadosip.json()
   statuscode = dadosip['statusCode']
@@ -49,10 +62,12 @@ elif od == '2':
 
   os.system('clear') or None
 
+  print(txt2)
   pesquisa_cep = input("digite um cep:")
 
   os.system('clear') or None
 
+  print(txt2)
   dados = requests.get("https://cep.awesomeapi.com.br/json/{}".format(pesquisa_cep))
   dados = dados.json()
   cep = dados['cep']
@@ -67,13 +82,15 @@ elif od == '2':
   print("CEP:{}\nRua:{}\nEstado:{}\nBairro:{}\nLatitude:{}\nLongitude:{}\nCidade:{}\nIBGE:{}\nDDD:{}".format(cep, rua, estado, bairro, latitude, longitude, cidade, ibge, ddd))
 
 elif od == '3':
+
+  print(txt2)
   pesquisa_cnpj = input("Digite um cnpj (sem'.'ou '/' '):\n")
 
   os.system('clear') or None
 
+  print(txt2)
   dados = requests.get('https://www.receitaws.com.br/v1/cnpj/{}'.format(pesquisa_cnpj))
   dados = dados.json()
- 
   atividade_principal = dados['atividade_principal']
   data_situacao = dados['data_situacao']
   complemento = dados['complemento']
