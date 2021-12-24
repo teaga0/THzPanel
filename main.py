@@ -194,15 +194,23 @@ elif od == '4':
     print("Estado:{}\nCidades:{}".format(state, cities))
 
 elif od == '5':
-
+  os.system('clear')
   app = Flask(__name__)
+  print(txt2)
+  tft = """Escolha uma opção:
+  [1]Local
+  [2]em breve..."""
+  print(tft)
+  iin = input("\n:")
+  if iin == '1':
+    os.system('clear')
+    pers = input('\ndigite uma mensagem personalizada:')
+    os.system('clear')
+    @app.route('/')
+    def home():
+      return pers
 
-
-  @app.route('/')
-  def home():
-    return 'saas'
-
-  app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0')
 
 
 elif od == '6':
