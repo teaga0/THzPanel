@@ -264,7 +264,7 @@ else:
 pg = input('\nDeseja fazer uma nova consulta? [sim][nao]')
 if pg == 'sim' or pg == 'SIM' or pg == 's' or pg == 'S':
   os.system('clear') or None
-  os.system('python main.py') or None
+  os.system('python3 main.py') or None
 elif pg == 'nao' or pg== 'NAO' or pg== 'n' or pg== 'N':
    varad = "Adeus em 3.."
    print(varad)
