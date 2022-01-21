@@ -15,7 +15,7 @@ os.system('clear') or None
 
 import time
 from flask import Flask
-from twilio.rest import Client
+#from twilio.rest import Client
 import json
 import requests
 b = "+"
@@ -156,44 +156,65 @@ def iplog():
     app.run(host='0.0.0.0')
 ###################################################
 def egg():
-  print(txt2)
-  print('ryan gayMER e thaleskakakajak\n\n\n\n\n\n')
+ print(txt2)
+ pesquisa_placa = input("Digite uma placa:")
+
+ dadosplaca = requests.get('https://apicarros.com/v1/consulta/{}/json'.format(pesquisa_placa))
+ dadosplaca = dadosplaca.json()
+ 
+ ano = dadosplaca['ano']
+ anoModelo = dadosplaca['anoModelo']
+ chassi = dadosplaca['chassi']
+ codigoRetorno = dadosplaca['codigoRetorno']
+ codigoSituacao = dadosplaca['codigoSituacao']
+ cor = dadosplaca['cor']
+ data = dadosplaca['data']
+ dataAtualizacaoRouboFurto = dadosplaca['dataAtualizacaoRouboFurto']
+ marca = dadosplaca['marca']
+ mensagemRetorno = dadosplaca['mensagemRetorno']
+ modelo = dadosplaca['modelo']
+ municipio = dadosplaca['municipio']
+ placa = dadosplaca['placa']
+ situacao = dadosplaca['situacao']
+ uf = dadosplaca['uf']
+
+ print("ano:{}\nano modelo:{}\nchassi:{}\ncodigo retorno:{}\ncodigo Situacao:{}\ncor:{}\ndata:{}\ndata Atualizacao Roubo/Furto:{}\nmarca:{}\n mensagem retorno:{}\n modelo:{}\nmunicipio:{}\nplaca:{}\nsituacao:{}\nuf:{}".format(ano, anoModelo, chassi, codigoRetorno, codigoSituacao, cor, data, dataAtualizacaoRouboFurto, marca, mensagemRetorno, modelo, municipio, placa, situacao, uf))
 #################################################
-def contato():
-  print(txt2)
-  contato = input("Digite seu whatsapp ou alguma forma para entrar em contato::\n")
-  os.system('clear') or None
-  print(txt2)
-  nome = input("digite seu nome ou apelido:\n")
-  os.system('clear') or None
-  print(txt2)
-  titulo = input("TITULO da mensagem:\n")
-  os.system('clear') or None
-  print(txt2)
-  mensagem = input("digite a mensagem ou sugestão:\n")
-  os.system('clear') or None
-
-  print("Obrigado!!!,um sms foi enviado para mim com a seguinte mensagem:")
-
-  msgrl = """
-  ______________
-  \ncontato:{}\n
-  by: {}\n
-  <{}>\n
-  {}
-  ---------------
-  """.format(contato, nome, titulo, mensagem)
-  print(msgrl)
-  nmr = b + c + d + e + f + j + k + g + h + a + l + m + n + o
-
-
-  print("\nentrarei em contato em breve!\n")
-
-  account_sid = "AC10c2c35758589419fb170aac051fdba5"
-  auth_token = "576b8f20381f39ffabb279eea378f9da"
-
-  Client = Client(account_sid, auth_token)
-  Client.messages.create(from_="+19842303432", body="{}".format(msgrl), to ="{}".format(nmr))
+#def contato():
+# print(txt2)
+# contato = input("Digite seu whatsapp ou alguma forma para entrar em contato::\n")
+# os.system('clear') or None
+# print(txt2)
+# nome = input("digite seu nome ou apelido:\n")
+# os.system('clear') or None
+# print(txt2)
+# titulo = input("TITULO da mensagem:\n")
+# os.system('clear') or None
+# print(txt2)
+# mensagem = input("digite a mensagem ou sugestão:\n")
+# os.system('clear') or None
+#
+# print("Obrigado!!!,um sms foi enviado para mim com a seguinte mensagem:")
+#
+# msgrl = """
+# ______________
+# \ncontato:{}\n
+# by: {}\n
+# <{}>\n
+# {}
+# ---------------
+# """.format(contato, nome, titulo, mensagem)
+# print(msgrl)
+# nmr = b + c + d + e + f + j + k + g + h + a + l + m + n + o
+#
+#
+# print("\nentrarei em contato em breve!\n")
+#
+# account_sid = "AC10c2c35758589419fb170aac051fdba5"
+# auth_token = "576b8f20381f39ffabb279eea378f9da"
+#
+# Client = Client(account_sid, auth_token)
+# Client.messages.create(from_="+19842303432", body="{}".format(msgrl), to ="{}".format(nmr))
 
 txt2 = """
 ╔════╦╗░╔╗░░░╔═══╗░░░░░░░░░░ ╔╗╔╗
@@ -223,9 +244,8 @@ txt = """
 [2]cep
 [3]cnpj
 [4]Numero
-[5]IP LOGGER
-[6]egg
-[0]de uma sugestao ou entre em contato comigo!!!
+[5]IP LOGGER (fase de testes, nao funciona)
+[6]placa
 """
 print(txt)
 od = input(":")
@@ -244,8 +264,8 @@ elif od == '5':
  iplog()
 elif od == '6':
  egg()
-elif od == '0':
- contato()
+#elif od == '0':
+# contato()
 else:
 
   print("a ok")
