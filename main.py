@@ -3,6 +3,7 @@
 ######################
 #By Berimbolo & t3ag4#
 ######################
+ 
 import os
 
 
@@ -136,24 +137,24 @@ def numero():
 
       print("Estado:{}\nCidades:{}".format(state, cities))
 ####################################################
-def iplog():
-  os.system('clear')
-  app = Flask(__name__)
-  print(txt2)
-  tft = """Escolha uma opção:
-  [1]Local
-  [2]em breve..."""
-  print(tft)
-  iin = input("\n:")
-  if iin == '1':
-    os.system('clear')
-    pers = input('\ndigite uma mensagem personalizada:')
-    os.system('clear')
-    @app.route('/')
-    def home():
-      return pers
-
-    app.run(host='0.0.0.0')
+#def iplog():
+#  os.system('clear')
+#  app = Flask(__name__)
+#  print(txt2)
+#  tft = """Escolha uma opção:
+#  [1]Local
+#  [2]em breve..."""
+#  print(tft)
+#  iin = input("\n:")
+#  if iin == '1':
+#    os.system('clear')
+#    pers = input('\ndigite uma mensagem #personalizada:')
+#    os.system('clear')
+#    @app.route('/')
+#    def home():
+#      return pers
+#
+#    app.run(host='0.0.0.0')
 ###################################################
 def egg():
  print(txt2)
@@ -244,8 +245,7 @@ txt = """
 [2]cep
 [3]cnpj
 [4]Numero
-[5]IP LOGGER (fase de testes, nao funciona)
-[6]placa
+[5]placa
 """
 print(txt)
 od = input(":")
@@ -261,8 +261,6 @@ elif od == '3':
 elif od == '4':
  numero()
 elif od == '5':
- iplog()
-elif od == '6':
  egg()
 #elif od == '0':
 # contato()
