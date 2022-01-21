@@ -2,6 +2,10 @@
 (X) IP </br>
 (X) CEP </br>
 (X) CNPJ <br>
+(X) Placa <br>
+(X) Numero <br>
+
+
 
 <h1> ferramenta para consultar CEP, cnpj & ip </h1>
 <h3> 1.0 </h3>
